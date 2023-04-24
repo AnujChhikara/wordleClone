@@ -5,7 +5,7 @@ function Keyboard() {
   const keys2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
   const keys3 = ["Z", "X", "C", "V", "B", "N", "M"];
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center cursor-pointer">
       <div className="flex">
         {keys1.map((key) => {
           return <Key keyValue={key} />;

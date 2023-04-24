@@ -1,11 +1,18 @@
 import { AppContext } from "../App";
 import { useContext } from "react";
 function Key(props) {
-  const { board, setBoard } = useContext(AppContext);
+  const { board, setBoard, currentAttempt, setCurrentAttempt } =
+    useContext(AppContext);
   const selectLetter = () => {
+    if (currentAttempt.letterPosition > 4) return;
     const newBoard = [...board];
-    newBoard[0][0] = props.keyValue;
+    newBoard[currentAttempt.attempt][currentAttempt.letterPosition] =
+      props.keyValue;
     setBoard(newBoard);
+    setCurrentAttempt({
+      ...currentAttempt,
+      letterPosition: currentAttempt.letterPosition + 1,
+    });
   };
   return (
     <div
